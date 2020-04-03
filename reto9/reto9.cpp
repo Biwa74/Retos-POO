@@ -7,25 +7,23 @@ int solution(vector<int> A){
     int i;
     int faltante;
     sort(A.begin(), A.end());
-    for (i=0;i<A.size();i++){
+    for (i=0;i<=A.size()-1;i++){
         if (A[i]!=i+1){
+             faltante=0;
              faltante=i+1;
-             return faltante;
              break;
         }
-
-
-
-
+        else{
+            faltante=A.size()+1;
+        }
     }
-
+    return faltante;
 }
 
 int main(){
     int f;
-    vector <int> A={2,3,1,5};
+    vector <int> A={-3,-1};
     f= solution(A);
     cout<< "Falta el numero: "<<endl;
     cout<< f <<endl;
-
 }
