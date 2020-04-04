@@ -5,30 +5,34 @@ using namespace std;
 
 
 int solution(vector<int> A){
+    int prom_min=10000;
+    int P;
+    int Q;
+    float suma;
+    int pos;
     for (P=0;P<A.size()-1;P++){
         suma=0;
         for (Q=P+1;Q<A.size();Q++){
             for (int i=P;i<=Q;i++){
                 suma=suma+A[i];
             }
-
+            float promedio=suma/(Q-P+1);
+            if(promedio<prom_min){
+                prom_min=promedio;
+                pos=P;
+            }
         }
 
     }
+    return pos;
 
 }
 
 int main(){
-    vector <int>A{4,2,2,5,1,5,8};
-    int n;
-    int l=0;
-    int porciones;
-    for (n=A.size(); n=0;n-1){
-        porciones=l+n;
-    }
-    int suma;
-    int P=0;
-    int Q;
+    vector <int>A{4,2,1,1};
+    int res;
+    res=solution(A);
+    cout<< res<<endl;
 
 
 }
